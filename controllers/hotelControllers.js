@@ -14,6 +14,7 @@ console.log("📷 Fichier reçu :", req.file);
       return res.status(400).json({ message: "Tous les champs sont requis" });
     }
 
+    
     const newHotel = new Hotel({
       nom,
       adresse,
