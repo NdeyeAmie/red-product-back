@@ -27,6 +27,7 @@
     "npm": "^11.4.2"
   },
   "dependencies": {
-    "multer": "^2.0.1"
+    "multer": "^2.0.1",
+    "multer-storage-cloudinary": "^4.0.0"
   }
 }

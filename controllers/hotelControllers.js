@@ -1,8 +1,13 @@
 const Hotel = require("../models/hotelModels");
 
 // ➕ Créer un hôtel
+
+
 const createHotel = async (req, res) => {
   try {
+    console.log("🧾 Données du body :", req.body);
+console.log("📷 Fichier reçu :", req.file);
+
     const { nom, adresse, email, telephone, prix, devise } = req.body;
 
     if (!nom || !adresse || !email || !telephone || !prix || !devise) {
@@ -16,7 +21,7 @@ const createHotel = async (req, res) => {
       telephone,
       prix,
       devise,
-      photo: req.file ? req.file.path : null,
+      photo: req.file?.path || req.file?.secure_url || null,
     });
 
     await newHotel.save();
@@ -26,6 +31,7 @@ const createHotel = async (req, res) => {
     res.status(500).json({ message: "Erreur serveur" });
   }
 };
+
 
 // 🔍 Récupérer tous les hôtels
 const getAllHotels = async (req, res) => {
